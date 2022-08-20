@@ -4,23 +4,27 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "SHOW_MESSAGE":
+    case Types.SHOW_MESSAGE:
       return { ...state, showMessage: true };
-    case "HIDE_MESSAGE":
+    case Types.HIDE_MESSAGE:
       return { ...state, showMessage: false };
     default:
       return state;
   }
 };
 
-export function showMessage() {
-  return {
-    type: "SHOW_MESSAGE",
-  };
-}
+// Actions Types
+export const Types = {
+  SHOW_MESSAGE: "SHOW_MESSAGE",
+  HIDE_MESSAGE: "HIDE_MESSAGE",
+};
 
-export function hideMessage() {
-  return {
+// Actions Creators
+export const Creators = {
+  showMessage: () => ({
+    type: "SHOW_MESSAGE",
+  }),
+  hideMessage: () => ({
     type: "HIDE_MESSAGE",
-  };
-}
+  }),
+};
